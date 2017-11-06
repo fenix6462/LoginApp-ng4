@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginapp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<base href="/">
+
+	<title>Login App</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/custom.css" rel="stylesheet">
+</head>
+
+<body ng-controller="AppController" ng-cloak>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">Login App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto" ng-show="isLoggedIn">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active" ng-show="!isLoggedIn">
+						<a class="nav-link" href="/login">Zaloguj <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown" ng-show="isLoggedIn">
+						<a class="nav-link dropdown-toggle" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{ currentUser.email }}
+						</a>
+						<div class="dropdown-menu" aria-labelledby="profileDropdown">
+							<a class="dropdown-item" href="/profile">Profile</a>
+							<a class="dropdown-item" ng-click="logout()">Logout</a>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<ui-view></ui-view>
+
+	</div><!-- /.container -->
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/assets/jquery/dist/jquery.min.js"></script>
+	<script src="/assets/popper.js/dist/umd/popper.min.js"></script>
+	<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="/assets/angular/angular.min.js"></script>
+	<script src="/assets/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+	<script src="/assets/@uirouter/angularjs/release/stateEvents.min.js"></script>
+
+	<script src="/ng/app.js"></script>
+	
+	<script src="/ng/services/AuthenticationService.js"></script>
+	<script src="/ng/services/AuthInterceptor.js"></script>
+
+	<script src="/ng/directives/LoaderDirective.js"></script>
+	<script src="/ng/directives/AlertDirective.js"></script>
+
+	<script src="/ng/controllers/AppController.js"></script>
+	<script src="/ng/controllers/HomeController.js"></script>
+	<script src="/ng/controllers/LoginController.js"></script>
+	<script src="/ng/controllers/RegisterController.js"></script>
+	<script src="/ng/controllers/ProfileController.js"></script>
+	<script src="/ng/controllers/ForgotController.js"></script>
+	<script src="/ng/controllers/ResetController.js"></script>
+
+</body>
+</html>

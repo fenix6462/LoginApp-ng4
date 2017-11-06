@@ -1,0 +1,54 @@
+<div class="container py-5">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 mx-auto">
+					<span class="anchor" id="formLogin"></span>
+					
+					<!-- form card login -->
+					<div class="card rounded-0">
+						<div class="card-header">
+							<div class="row align-items-center">
+								<div class="col-6">
+									<h3 class="mb-0">Forgot Password</h3>
+								</div>
+								<div class="col-6 text-right">
+									<loader align="right" ng-show="isLoading"></loader>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<alert ng-if="info.message" message="{{ info.message }}" type="{{ info.type }}"></alert>
+							<form class="forgotPasswordForm" role="form" name="forgotPasswordForm" ng-submit="!forgotPasswordForm.$invalid && login()" novalidate autocomplete="off">
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" class="form-control form-control-lg rounded-0" ng-class="{'is-invalid': forgotPasswordForm.$submitted && (forgotPasswordForm.email.$error.required || (forgotPasswordForm.email.$invalid && !forgotPasswordForm.email.$error.required) )}" ng-model="email" name="email" id="email" required="" placeholder="Email">
+									<small class="invalid-feedback" ng-show="forgotPasswordForm.$submitted && forgotPasswordForm.email.$error.required">Email is required</small>
+									<small class="invalid-feedback" ng-show="forgotPasswordForm.$submitted && forgotPasswordForm.email.$invalid && !forgotPasswordForm.email.$error.required">Email is not valid</small>
+								</div>
+								<div class="row align-items-center">
+									<div class="col-6">
+										<button type="submit" class="btn btn-success btn-lg">Reset password</button>
+									</div>
+									<div class="col-6 text-right">
+										<a href="/login">Or Login</a>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!--/card-block-->
+					</div>
+					<!-- /form card login -->
+
+				</div>
+
+
+			</div>
+			<!--/row-->
+
+		</div>
+		<!--/col-->
+	</div>
+	<!--/row-->
+</div>
+<!--/container-->

@@ -1,0 +1,31 @@
+<h2>Mój profil</h2>
+<hr>
+<loader ng-show="isLoading"></loader>
+<alert ng-if="info.message" message="{{info.message}}" type="{{info.type}}"></alert>
+<form class="profilForm" role="form" name="profilForm" ng-submit="!profilForm.$invalid && edit()" novalidate autocomplete="off" ng-show="!isLoading">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="form-group col-sm-10">
+                    <input type="email" class="form-control form-control rounded-0" ng-class="{'is-invalid': profilForm.$submitted && (profilForm.email.$error.required || (profilForm.email.$invalid && !profilForm.email.$error.required) )}" ng-model="user.email" name="email" id="email" required="" placeholder="Email">
+                    <small class="invalid-feedback" ng-show="profilForm.$submitted && profilForm.email.$error.required">Email is required</small>
+                    <small class="invalid-feedback" ng-show="profilForm.$submitted && profilForm.email.$invalid && !profilForm.email.$error.required">Email is not valid</small>
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="firstName" class="col-sm-2 col-form-label">Imię</label>
+                <div class="form-group col-sm-10">
+                    <input type="text" class="form-control form-control rounded-0" ng-model="user.profile.firstName" name="firstName" id="firstName" placeholder="Imię">
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="lastName" class="col-sm-2 col-form-label">Nazwisko</label>
+                <div class="form-group col-sm-10">
+                    <input type="text" class="form-control form-control rounded-0" ng-model="user.profile.lastName" name="lastName" id="lastName" placeholder="Nazwisko">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn">Zapisz</button>
+  </form>
